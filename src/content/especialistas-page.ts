@@ -19,13 +19,13 @@ export type Especialista = {
 export const ESPECIALISTAS: Especialista[] = [
   {
     slug: 'diretora-clinica',
-    name: 'Dra. [Nome 1]',
-    initials: 'N1',
-    role: 'Diretora cl\u00ednica \u2022 Reabilita\u00e7\u00e3o oral',
+    name: 'Dra. Marcia Maria de Sousa',
+    initials: 'MMS',
+    role: 'Respons\u00e1vel T\u00e9cnica \u2022 Diretora Cl\u00ednica \u2022 Reabilita\u00e7\u00e3o Oral',
     philosophy:
       'Cada paciente carrega uma boca inteira at\u00e9 a primeira consulta. Meu trabalho \u00e9 n\u00e3o dividir essa boca em peda\u00e7os s\u00f3 para tratar mais r\u00e1pido. Vamos com calma, pe\u00e7a por pe\u00e7a, at\u00e9 voltar a fazer sentido.',
     treatments: ['protese', 'cirurgias', 'checkup'],
-    cro: 'CRO-SP 00000',
+    cro: 'CRO-SP: 101519',
     image: {
       src: '/images/especialistas/diretora-clinica.jpg',
       alt: 'Retrato da diretora cl\u00ednica da Biodonth',

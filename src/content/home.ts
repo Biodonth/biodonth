@@ -130,7 +130,7 @@ export const FOOTER = {
   legal: {
     copyright: (year: number) =>
       `\u00a9 ${year} Biodonth Odontologia Integrada. Todos os direitos reservados.`,
-    cro: 'CRO-SP: 00000', // TODO: replace with CRO of responsible technician
+    cro: 'Responsável Técnica: Dra. Marcia Maria de Sousa — CRO-SP: 101519',
     privacyLink: { label: 'Pol\u00edtica de privacidade', href: '/politica-de-privacidade' },
     termsLink:   { label: 'Termos de uso',           href: '/termos-de-uso' },
   },
