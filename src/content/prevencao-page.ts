@@ -110,9 +110,9 @@ export const PREVENCAO_PAGE = {
     title: 'Não tratamos quando',
     titleItalic: 'a dor chega.',
     paragraphs: [
-      'A odontologia tradicional opera em modo de resposta: o paciente sente dor, agenda consulta, e o dentista trata. Esse modelo é eficiente para emergências — e caro, longo e desconfortável para tudo o mais.',
-      'A Biodonth foi desenhada de outra forma. Cada um dos nossos programas preventivos parte de um princípio simples: o que detectamos no exame de hoje custa significativamente menos — em tempo, em dinheiro, em incômodo — do que o que vamos tratar quando virar urgência.',
-      'Por isso temos seis programas distintos. Porque a prevenção que serve a uma criança de 5 anos não é a mesma que serve a uma gestante, a um atleta, ou a um paciente de 70. Cada um tem o seu caminho.',
+      'A odontologia tradicional opera em modo de resposta: o paciente sente dor, agenda consulta, e o dentista trata. Esse modelo é eficiente para emergências, mas é caro, longo e desconfortável para outras necessidades.',
+      'A Biodonth foi estruturada de outra forma. Cada um dos nossos programas preventivos parte de um princípio simples: o que detectamos no exame de hoje custa significativamente menos, em tempo, em dinheiro, em incômodo, do que o que vamos tratar quando virar urgência.',
+      'Por isso temos seis programas distintos. Porque a prevenção que serve a uma criança de 5 anos não é a mesma que serve a uma gestante, a um atleta, ou a um paciente de 60+. Cada um tem o seu caminho.',
     ],
   },
 
