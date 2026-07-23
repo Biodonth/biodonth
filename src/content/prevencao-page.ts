@@ -129,9 +129,9 @@ export const PREVENCAO_PAGE = {
     bronze: 'Prevenção é o',
     bronzeItalic: 'tratamento mais barato.',
     paragraphs: [
-      'A literatura é consistente: cada R$ 1 investido em prevenção evita estimativamente R$ 4 a R$ 7 em tratamentos curativos posteriores. A profilaxia semestral evita a cárie. A cárie evitada evita a restauração. A restauração evitada evita o canal. O canal evitado evita a coroa. A coroa evitada evita o implante. A economia é cumulativa.',
+      'A literatura é consistente: cada R$ 1 investido em prevenção evita aproximadamente R$ 4 a R$ 7 em tratamentos curativos posteriores. A profilaxia semestral evita a cárie. A cárie tratada evita a restauração. A restauração realizada evita o canal. O canal tratado evita a coroa. A coroa realizada evita o implante. A economia é cumulativa.',
       'Mas a economia financeira é só uma parte. A outra é o que não se mede em dinheiro: as consultas que não foram necessárias, as dores que não chegaram, o tempo que não foi gasto na cadeira, a ansiedade que não precisou ser administrada.',
-      'Os programas preventivos da Biodonth são feitos com essa lógica do longo prazo. Você cuida hoje, e o futuro que evita é o ponto.',
+      'Os programas preventivos da Biodonth são feitos com essa lógica de longo prazo: você cuida hoje para evitar o problema amanhã.',
     ],
   },
 
