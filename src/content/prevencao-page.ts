@@ -121,7 +121,7 @@ export const PREVENCAO_PAGE = {
     title: 'Seis caminhos para',
     titleItalic: 'a mesma destinação.',
     description:
-      'Cada programa preventivo é construído para uma fase específica da vida ou um contexto específico de uso. Escolha o que mais se aproxima da sua situação — ou conversa conosco para descobrir qual faz mais sentido para você.',
+      'Cada programa preventivo é construído para uma fase específica da vida ou um contexto específico de uso. Escolha o que mais se aproxima da sua situação, ou converse conosco para descobrir qual faz mais sentido para você.',
   },
 
   philosophy: {
