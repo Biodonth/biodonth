@@ -102,7 +102,7 @@ export const PREVENCAO_PAGE = {
     bronze: 'O melhor tratamento',
     bronzeItalic: 'é o que não precisa acontecer.',
     description:
-      'Cada fase da vida tem cuidados específicos para a boca. Conheça nossos programas preventivos — desenhados para que o sorriso aos 70 seja construído nos 30, 40, 50.',
+      'Cada fase da vida tem cuidados específicos para a boca. Conheça nossos programas preventivos, desenhados para que o sorriso aos 70 seja construído nos 10, 20, 30, 40, 50.',
   },
 
   intro: {
