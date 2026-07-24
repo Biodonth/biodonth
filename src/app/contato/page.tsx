@@ -6,7 +6,7 @@ import { ContatoClosing } from '@/components/sections/ContatoClosing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { CONTATO_PAGE } from '@/content/contato-page';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: CONTATO_PAGE.metadata.title,

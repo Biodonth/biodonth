@@ -6,7 +6,7 @@ import { TratamentosClosing } from '@/components/sections/TratamentosClosing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { TRATAMENTOS_PAGE } from '@/content/tratamentos-page';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: TRATAMENTOS_PAGE.metadata.title,

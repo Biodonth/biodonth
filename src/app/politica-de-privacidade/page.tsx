@@ -3,7 +3,7 @@ import { LegalPageLayout } from '@/components/sections/LegalPageLayout';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PRIVACIDADE } from '@/content/legal-pages';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: PRIVACIDADE.metadata.title,

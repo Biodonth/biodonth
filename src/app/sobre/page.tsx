@@ -8,7 +8,7 @@ import { SobreClosing } from '@/components/sections/SobreClosing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { SOBRE_PAGE } from '@/content/sobre-page';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: SOBRE_PAGE.metadata.title,

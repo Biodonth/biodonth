@@ -12,7 +12,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { TREATMENTS } from '@/content/treatments';
 import { TREATMENTS_CONTENT } from '@/content/treatments-content';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ slug: string }> };
 

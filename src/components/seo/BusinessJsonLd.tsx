@@ -1,6 +1,6 @@
 import { CONTACT } from '@/content/contact';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export function BusinessJsonLd() {
   const data = {

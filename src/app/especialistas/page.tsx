@@ -7,7 +7,7 @@ import { EspecialistasClosing } from '@/components/sections/EspecialistasClosing
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ESPECIALISTAS_PAGE } from '@/content/especialistas-page';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: ESPECIALISTAS_PAGE.metadata.title,

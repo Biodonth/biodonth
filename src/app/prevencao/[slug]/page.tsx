@@ -11,7 +11,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PREVENCAO_PROGRAMS } from '@/content/prevencao-page';
 import { PREVENCAO_CONTENT } from '@/content/prevencao-content';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 type Props = { params: Promise<{ slug: string }> };
 

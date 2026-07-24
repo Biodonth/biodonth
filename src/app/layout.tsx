@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab';
 import './globals.css';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 const SITE_NAME = 'Biodonth';
 const SITE_TITLE = 'Biodonth | Odontologia Integrada em Artur Alvim, SP';
 const SITE_DESCRIPTION =

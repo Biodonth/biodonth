@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { TREATMENTS } from '@/content/treatments';
 import { PREVENCAO_PROGRAMS } from '@/content/prevencao-page';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

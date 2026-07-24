@@ -7,7 +7,7 @@ import { PrevencaoClosing } from '@/components/sections/PrevencaoClosing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PREVENCAO_PAGE } from '@/content/prevencao-page';
 
-const SITE_URL = 'https://biodonth.com.br';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: PREVENCAO_PAGE.metadata.title,
