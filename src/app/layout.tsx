@@ -68,8 +68,28 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <Script
+          id="gtm-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());`,
+          }}
+        />
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-TSWJWR8F"
+        />
       </head>
       <body>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TSWJWR8F"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <Nav />
         <main id="main-content">{children}</main>
         <Footer />
