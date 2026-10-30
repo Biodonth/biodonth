@@ -33,7 +33,7 @@ export const HOME_VIDEO = {
   bronzeItalic: 'antes do tratamento.',
   description:
     'Quando você chega à Biodonth, a primeira sensação deve ser de acolhimento. Um ambiente tranquilo, uma conversa sem pressa e uma equipe preparada para ouvir sua história antes de falar sobre procedimentos. Porque, para nós, cada tratamento começa com confiança.',
-  videoSrc: '/videos/biodonth-tour.mp4',
+  videoSrc: 'https://www.youtube.com/embed/vBcWPX2NA_I',
   posterSrc: '/images/video/biodonth-tour-poster.jpg',
   posterFallback:
     'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80&auto=format&fit=crop',

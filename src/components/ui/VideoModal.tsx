@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { X } from 'lucide-react';
 
@@ -12,8 +12,8 @@ type VideoModalProps = {
 };
 
 export function VideoModal({ open, onClose, videoSrc, ariaLabel }: VideoModalProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const [activeSrc, setActiveSrc] = useState('');
 
   // Lock body scroll
   useEffect(() => {
@@ -26,6 +26,15 @@ export function VideoModal({ open, onClose, videoSrc, ariaLabel }: VideoModalPro
       document.body.style.overflow = '';
     };
   }, [open]);
+
+  // Set/clear iframe src to autoplay on open and stop on close
+  useEffect(() => {
+    if (open) {
+      setActiveSrc(`${videoSrc}?autoplay=1&rel=0`);
+    } else {
+      setActiveSrc('');
+    }
+  }, [open, videoSrc]);
 
   // Focus close button on open
   useEffect(() => {
@@ -43,16 +52,6 @@ export function VideoModal({ open, onClose, videoSrc, ariaLabel }: VideoModalPro
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [open, onClose]);
-
-  // Autoplay on open, pause+reset on close
-  useEffect(() => {
-    if (open) {
-      videoRef.current?.play().catch(() => {});
-    } else if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  }, [open]);
 
   return (
     <AnimatePresence>
@@ -88,15 +87,12 @@ export function VideoModal({ open, onClose, videoSrc, ariaLabel }: VideoModalPro
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
             className="relative w-full max-w-6xl aspect-video bg-shadow rounded-[2px] overflow-hidden border-[1.5px] border-bronze"
           >
-            <video
-              ref={videoRef}
-              src={videoSrc}
-              controls
-              controlsList="nodownload noplaybackrate"
-              playsInline
-              preload="none"
-              className="w-full h-full object-cover bg-shadow"
-              aria-label={ariaLabel}
+            <iframe
+              src={activeSrc}
+              title={ariaLabel}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
             />
           </motion.div>
         </motion.div>
