@@ -61,9 +61,11 @@ export function EspecialistaCard({ especialista }: EspecialistaCardProps) {
           {especialista.name}
         </h3>
 
-        <p className="mt-4 font-display italic text-[clamp(15px,1.6vw,18px)] leading-[1.55] text-charcoal/90 max-w-md">
-          &ldquo;{especialista.philosophy}&rdquo;
-        </p>
+        {especialista.philosophy && (
+          <p className="mt-4 font-display italic text-[clamp(15px,1.6vw,18px)] leading-[1.55] text-charcoal/90 max-w-md">
+            &ldquo;{especialista.philosophy}&rdquo;
+          </p>
+        )}
 
         <div className="mt-6 pt-5 border-t border-marmorino-light/40 flex items-start justify-between gap-4">
           {treatmentNames.length > 0 && (

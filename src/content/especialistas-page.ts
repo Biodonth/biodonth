@@ -7,7 +7,7 @@ export type Especialista = {
   name: string;
   initials: string;
   role: string;
-  philosophy: string;
+  philosophy?: string;
   treatments: string[];
   cro: string;
   image: {
@@ -21,84 +21,132 @@ export const ESPECIALISTAS: Especialista[] = [
     slug: 'diretora-clinica',
     name: 'Dra. Marcia Maria de Sousa',
     initials: 'MMS',
-    role: 'Respons\u00e1vel T\u00e9cnica \u2022 Diretora Cl\u00ednica \u2022 Reabilita\u00e7\u00e3o Oral',
-    philosophy:
-      'Cada paciente carrega uma boca inteira at\u00e9 a primeira consulta. Meu trabalho \u00e9 n\u00e3o dividir essa boca em peda\u00e7os s\u00f3 para tratar mais r\u00e1pido. Vamos com calma, pe\u00e7a por pe\u00e7a, at\u00e9 voltar a fazer sentido.',
+    role: 'Diretora Cl\u00ednica',
     treatments: ['protese', 'cirurgias', 'checkup'],
-    cro: 'CRO-SP: 101519',
+    cro: 'CRO-SP 101519',
     image: {
-      src: '/images/especialistas/diretora-clinica.jpg',
-      alt: 'Retrato da diretora cl\u00ednica da Biodonth',
+      src: '/images/especialistas/marcia-sousa.jpeg',
+      alt: 'Retrato de Dra. Marcia Maria de Sousa, Diretora Cl\u00ednica',
     },
   },
   {
     slug: 'implantodontia',
-    name: 'Dr. [Nome 2]',
-    initials: 'N2',
+    name: 'Dr. Nilson da Silva de Oliveira',
+    initials: 'NSO',
     role: 'Implantodontia',
-    philosophy:
-      'Trabalhar com implantes \u00e9 trabalhar com tempo. Cada osso responde no seu ritmo, e a pressa \u00e9 o que separa um implante que dura 5 anos de um que dura 30. Minha parte \u00e9 n\u00e3o apressar.',
     treatments: ['implantes-dentarios'],
-    cro: 'CRO-SP 00000',
+    cro: 'CRO-SP 126440',
     image: {
-      src: '/images/especialistas/implantodontia.jpg',
-      alt: 'Retrato do implantodontista da Biodonth',
+      src: '/images/especialistas/nilson-oliveira.png',
+      alt: 'Retrato de Dr. Nilson da Silva de Oliveira, Implantodontia',
+    },
+  },
+  {
+    slug: 'bucomaxilofacial',
+    name: 'Dr. Thiago Salvador de Lima Yamada',
+    initials: 'TSY',
+    role: 'Cirurgia Bucomaxilofacial',
+    treatments: ['cirurgias'],
+    cro: 'CRO-SP 106002',
+    image: {
+      src: '/images/especialistas/thiago-yamada.png',
+      alt: 'Retrato de Dr. Thiago Salvador de Lima Yamada, Cirurgia Bucomaxilofacial',
+    },
+  },
+  {
+    slug: 'protese-dentaria',
+    name: 'Dra. Ana Beatriz G. de Morais',
+    initials: 'ABM',
+    role: 'Pr\u00f3tese Dent\u00e1ria',
+    treatments: ['protese'],
+    cro: 'CRO-SP 165133',
+    image: {
+      src: '/images/especialistas/ana-beatriz-morais.png',
+      alt: 'Retrato de Dra. Ana Beatriz G. de Morais, Pr\u00f3tese Dent\u00e1ria',
     },
   },
   {
     slug: 'ortodontia',
-    name: 'Dra. [Nome 3]',
-    initials: 'N3',
+    name: 'Dra. Andreia Santos R. de Negreiros',
+    initials: 'ASN',
     role: 'Ortodontia',
-    philosophy:
-      'Dentes alinhados n\u00e3o s\u00e3o vaidade \u2014 s\u00e3o sa\u00fade, fun\u00e7\u00e3o, autoestima e fon\u00e9tica. Mas tudo isso a gente conquista sem precisar avisar o mundo de aparelho. H\u00e1 mais de uma forma de chegar l\u00e1.',
-    treatments: ['ortodontia'],
-    cro: 'CRO-SP 00000',
+    treatments: ['ortodontia', 'alinhadores'],
+    cro: 'CRO-SP 159826',
     image: {
-      src: '/images/especialistas/ortodontia.jpg',
-      alt: 'Retrato da ortodontista da Biodonth',
+      src: '/images/especialistas/andreia-negreiros.jpeg',
+      alt: 'Retrato de Dra. Andreia Santos R. de Negreiros, Ortodontia',
     },
   },
   {
-    slug: 'periodontia',
-    name: 'Dr. [Nome 4]',
-    initials: 'N4',
-    role: 'Periodontia',
-    philosophy:
-      'A gengiva \u00e9 o trabalho que ningu\u00e9m v\u00ea. Quando ela est\u00e1 bem, a pessoa nem nota. Quando est\u00e1 mal, pode derrubar implantes, dentes e o sorriso inteiro. Eu cuido do invis\u00edvel para que o vis\u00edvel dure.',
-    treatments: ['saude-gengiva'],
-    cro: 'CRO-SP 00000',
+    slug: 'ortodontia-claudia',
+    name: 'Dra. Claudia Maria de Sousa',
+    initials: 'CMS',
+    role: 'Ortodontia',
+    treatments: ['ortodontia', 'alinhadores'],
+    cro: 'CRO-SP 150286',
     image: {
-      src: '/images/especialistas/periodontia.jpg',
-      alt: 'Retrato do periodontista da Biodonth',
+      src: '/images/especialistas/claudia-sousa.jpeg',
+      alt: 'Retrato de Dra. Claudia Maria de Sousa, Ortodontia',
+    },
+  },
+  {
+    slug: 'endodontia',
+    name: 'Dra. Gabriela Maria Silva Romano',
+    initials: 'GMR',
+    role: 'Endodontia',
+    treatments: ['endodontia'],
+    cro: 'CRO-SP 130622',
+    image: {
+      src: '/images/especialistas/gabriela-romano.jpeg',
+      alt: 'Retrato de Dra. Gabriela Maria Silva Romano, Endodontia',
+    },
+  },
+  {
+    slug: 'dentistica',
+    name: 'Dra. Ideides Aparecida Souza',
+    initials: 'IAS',
+    role: 'Dent\u00edstica',
+    treatments: [],
+    cro: 'CRO-SP 134457',
+    image: {
+      src: '/images/especialistas/ideides-souza.png',
+      alt: 'Retrato de Dra. Ideides Aparecida Souza, Dent\u00edstica',
+    },
+  },
+  {
+    slug: 'cirurgia-oral-menor',
+    name: 'Dra. Jessica Bulgurlu da Silva Memet',
+    initials: 'JBM',
+    role: 'Cirurgia Oral Menor',
+    treatments: ['cirurgias'],
+    cro: 'CRO-SP 152178',
+    image: {
+      src: '/images/especialistas/jessica-memet.png',
+      alt: 'Retrato de Dra. Jessica Bulgurlu da Silva Memet, Cirurgia Oral Menor',
+    },
+  },
+  {
+    slug: 'estetica-dental',
+    name: 'Dra. Lizeth Teran Verduguez',
+    initials: 'LTV',
+    role: 'Est\u00e9tica Dental',
+    treatments: ['facetas', 'clareamento'],
+    cro: 'CRO-SP 100425',
+    image: {
+      src: '/images/especialistas/lizeth-verduguez.png',
+      alt: 'Retrato de Dra. Lizeth Teran Verduguez, Est\u00e9tica Dental',
     },
   },
   {
     slug: 'odontopediatria',
-    name: 'Dra. [Nome 5]',
-    initials: 'N5',
+    name: 'Dra. Victoria Carolina da Silva',
+    initials: 'VCS',
     role: 'Odontopediatria',
-    philosophy:
-      'A primeira ida ao dentista decide a rela\u00e7\u00e3o com o cuidado da boca pelo resto da vida. Eu prefiro que a primeira visita do seu filho seja sem dor, sem c\u00e1rie, sem urg\u00eancia \u2014 s\u00f3 para nos conhecer. \u00c9 assim que se forma um adulto que escova sem cobrar.',
     treatments: ['odontopediatria'],
-    cro: 'CRO-SP 00000',
+    cro: 'CRO-SP 162117',
     image: {
-      src: '/images/especialistas/odontopediatria.jpg',
-      alt: 'Retrato da odontopediatra da Biodonth',
-    },
-  },
-  {
-    slug: 'estetica',
-    name: 'Dr. [Nome 6]',
-    initials: 'N6',
-    role: 'Est\u00e9tica dental',
-    philosophy:
-      'Faceta bem feita ningu\u00e9m percebe que existe. Quando algu\u00e9m pergunta \u201co que voc\u00ea mudou?\u201d, a resposta foi errada. O sorriso natural \u00e9 o trabalho mais t\u00e9cnico \u2014 perfei\u00e7\u00e3o artificial \u00e9 f\u00e1cil de imitar, mas naturalidade exige precis\u00e3o.',
-    treatments: ['facetas', 'clareamento'],
-    cro: 'CRO-SP 00000',
-    image: {
-      src: '/images/especialistas/estetica.jpg',
-      alt: 'Retrato do especialista em est\u00e9tica dental da Biodonth',
+      src: '/images/especialistas/victoria-silva.png',
+      alt: 'Retrato de Dra. Victoria Carolina da Silva, Odontopediatria',
     },
   },
 ];
