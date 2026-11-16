@@ -12,6 +12,7 @@ export function TreatmentsGrid() {
   return (
     <section id="tratamentos" className="bg-concrete py-20 md:py-28 lg:py-36">
       <Container>
+        {/* Two-column: header + list on left, description on right */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
           {/* LEFT — header + numbered list */}
           <div className="lg:col-span-6 xl:col-span-5">
@@ -24,11 +25,8 @@ export function TreatmentsGrid() {
               align="left"
               headingLevel="h2"
             />
-            <p className="mt-6 mb-10 font-body text-marmorino leading-relaxed text-[clamp(16px,1.6vw,18px)] max-w-md">
-              {HOME_TREATMENTS.description.split('\n')[0]}
-            </p>
 
-            <ol className="space-y-0">
+            <ol className="mt-10 space-y-0">
               {FEATURED.map((t, i) => (
                 <li key={t.slug}>
                   <Link
@@ -72,29 +70,24 @@ export function TreatmentsGrid() {
             </div>
           </div>
 
-          {/* RIGHT — team image, desktop only */}
-          <div className="hidden lg:block lg:col-span-6 xl:col-span-7 self-stretch">
-            <div className="relative overflow-hidden border-[2px] border-bronze h-full min-h-[480px]">
-              <Image
-                src="/images/team-biodonth.jpg"
-                alt="Equipe da Biodonth Odontologia Integrada"
-                fill
-                sizes="(max-width: 1280px) 50vw, 700px"
-                className="object-cover object-center"
-              />
-            </div>
+          {/* RIGHT — description text */}
+          <div className="hidden lg:flex lg:col-span-6 xl:col-span-7 items-end pb-2">
+            <p className="font-body text-marmorino leading-relaxed text-[clamp(16px,1.6vw,20px)] max-w-lg">
+              {HOME_TREATMENTS.description.split('\n')[1] ?? HOME_TREATMENTS.description.split('\n')[0]}
+            </p>
           </div>
         </div>
 
-        {/* Mobile: team image below list */}
-        <div className="lg:hidden mt-10 overflow-hidden border-[2px] border-bronze">
+        {/* Full-width team photo at natural 3:2 aspect ratio — no cropping */}
+        <div className="mt-14 md:mt-18 lg:mt-20 overflow-hidden border-[2px] border-bronze">
           <Image
             src="/images/team-biodonth.jpg"
             alt="Equipe da Biodonth Odontologia Integrada"
-            width={800}
-            height={500}
-            sizes="100vw"
+            width={1536}
+            height={1024}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
             className="block w-full h-auto"
+            priority={false}
           />
         </div>
       </Container>
