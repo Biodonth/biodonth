@@ -1,7 +1,9 @@
 import { Hero } from '@/components/sections/Hero';
 import { TrustStrip } from '@/components/sections/TrustStrip';
+import { AbordagemSection } from '@/components/sections/AbordagemSection';
 import { VideoSection } from '@/components/sections/VideoSection';
 import { TreatmentsGrid } from '@/components/sections/TreatmentsGrid';
+import { EspecialistasPreview } from '@/components/sections/EspecialistasPreview';
 import { BeforeAfterShowcase } from '@/components/sections/BeforeAfterShowcase';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { Faq } from '@/components/sections/Faq';
@@ -23,8 +25,10 @@ export default async function HomePage() {
     <>
       <Hero />
       <TrustStrip />
+      <AbordagemSection />
       <VideoSection />
       <TreatmentsGrid />
+      <EspecialistasPreview />
       <BeforeAfterShowcase />
       <Testimonials testimonials={testimonials} summary={summary} />
       <Faq />

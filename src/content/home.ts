@@ -73,6 +73,50 @@ export const HOME_TESTIMONIALS = {
   verifiedBadge: 'Verificado no Google',
 } as const;
 
+export const HOME_ABORDAGEM = {
+  eyebrow: 'Como funciona',
+  bronze: 'Consulta sem pressa,',
+  bronzeItalic: 'tratamento com propósito.',
+  description:
+    'Na Biodonth, nenhuma decisão é tomada sem que você entenda o porquê. Cada etapa é apresentada com clareza, respeitando o seu tempo e as suas prioridades.',
+  steps: [
+    {
+      number: '01',
+      title: 'Avaliação',
+      description:
+        'Escutamos sua história, entendemos suas queixas e realizamos um exame clínico detalhado com tecnologia de diagnóstico digital.',
+    },
+    {
+      number: '02',
+      title: 'Diagnóstico',
+      description:
+        'O resultado é apresentado com clareza. Você vê o que a câmera intraoral registrou e entende exatamente o que está acontecendo na sua boca.',
+    },
+    {
+      number: '03',
+      title: 'Planejamento',
+      description:
+        'Elaboramos um plano de tratamento personalizado com etapas, prazos estimados e valores definidos com transparência — sem surpresas.',
+    },
+    {
+      number: '04',
+      title: 'Acompanhamento',
+      description:
+        'O cuidado não termina no consultório. Revisões periódicas garantem que os resultados se mantenham e que sua saúde bucal evolua.',
+    },
+  ],
+} as const;
+
+export const HOME_ESPECIALISTAS_PREVIEW = {
+  eyebrow: 'Quem cuida de você',
+  bronze: 'Cada especialidade tem',
+  bronzeItalic: 'um responsável dedicado.',
+  description:
+    'A Biodonth reúne especialistas em diferentes áreas da odontologia que trabalham de forma integrada — analisando o seu caso como um todo antes de qualquer procedimento.',
+  ctaLabel: 'Conheça toda a equipe',
+  ctaHref: '/especialistas',
+} as const;
+
 export const HOME_FAQ = {
   eyebrow: 'Antes de marcar, algumas respostas',
   bronze: 'Sabemos que algumas',

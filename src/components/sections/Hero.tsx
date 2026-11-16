@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { DisplayHeadline } from '@/components/ui/DisplayHeadline';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
@@ -27,7 +29,7 @@ export function Hero() {
               className="[&>h1]:text-[clamp(32px,5.5vw,72px)] [&>p]:text-[clamp(15px,1.8vw,22px)] [&>p]:mt-3"
             />
 
-            <div className="mt-6 lg:mt-8 flex flex-row items-center gap-3 sm:gap-4">
+            <div className="mt-6 lg:mt-8 flex flex-row items-center gap-6 sm:gap-8">
               <Button
                 variant="pill"
                 as="a"
@@ -37,14 +39,23 @@ export function Hero() {
               >
                 {HOME_HERO.primaryCta.label}
               </Button>
-              <Button
-                variant="pill"
-                as="a"
+              <Link
                 href={HOME_HERO.secondaryCta.href}
-                className="bg-transparent text-bronze border border-bronze hover:bg-bronze hover:text-pure"
+                className="group inline-flex items-center gap-2 font-body text-[14px] md:text-[15px] font-medium text-charcoal hover:text-bronze transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
               >
-                {HOME_HERO.secondaryCta.label}
-              </Button>
+                <span className="relative">
+                  {HOME_HERO.secondaryCta.label}
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-0.5 left-0 h-px w-full bg-bronze scale-x-0 origin-left transition-transform duration-400 ease-[var(--ease-premium)] group-hover:scale-x-100"
+                  />
+                </span>
+                <ArrowRight
+                  className="w-3.5 h-3.5 transition-transform duration-400 ease-[var(--ease-premium)] group-hover:translate-x-1"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+              </Link>
             </div>
           </div>
 

@@ -39,7 +39,7 @@ export function VideoSection() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label={`Reproduzir ${HOME_VIDEO.ariaLabel}`}
-            className="group relative block w-full aspect-video border-[1.5px] border-bronze bg-shadow overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4 transition-transform duration-700 ease-[var(--ease-premium)] hover:scale-[1.005]"
+            className="group relative block w-full aspect-video border-[1.5px] border-bronze bg-shadow overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
           >
             <Image
               src={HOME_VIDEO.posterFallback}
