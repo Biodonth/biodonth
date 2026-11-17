@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Phone, MessageCircle, ArrowRight, Check } from 'lucide-react';
+import { Phone, MessageCircle, Check } from 'lucide-react';
 import { LogoFull } from '@/components/ui/Logo';
 import { BeforeAfter } from '@/components/ui/BeforeAfter';
 import { LANDING, IMPLANTES_WA_URL } from '@/content/landing-implantes';
@@ -35,16 +34,16 @@ export default function ImplantesPage() {
       </header>
 
       {/* ── HERO ───────────────────────────────────────────────── */}
-      <section className="bg-shadow text-concrete pt-16 pb-14 md:pt-20 md:pb-18">
+      <section className="bg-concrete pt-16 pb-14 md:pt-20 md:pb-18 border-b border-marmorino-light/40">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <p className="font-body uppercase text-[11px] md:text-[12px] tracking-[0.2em] text-bronze font-medium mb-6">
+          <p className="font-body uppercase text-[11px] md:text-[12px] tracking-[0.2em] text-bronze-dark font-medium mb-6">
             {LANDING.hero.eyebrow}
           </p>
           <h1 className="font-display leading-[1.08] text-[clamp(38px,6vw,76px)] max-w-3xl mb-6">
-            <span className="text-bronze-light block">{LANDING.hero.bronze}</span>
-            <span className="text-bronze-light italic block">{LANDING.hero.bronzeItalic}</span>
+            <span className="text-bronze block">{LANDING.hero.bronze}</span>
+            <span className="text-bronze italic block">{LANDING.hero.bronzeItalic}</span>
           </h1>
-          <p className="font-body text-[clamp(16px,1.6vw,20px)] text-concrete/75 leading-relaxed max-w-xl mb-10">
+          <p className="font-body text-[clamp(16px,1.6vw,20px)] text-marmorino leading-relaxed max-w-xl mb-10">
             {LANDING.hero.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -54,12 +53,12 @@ export default function ImplantesPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 bg-bronze text-concrete font-body font-medium text-[15px] tracking-[0.03em] px-7 py-4 transition-colors duration-300 hover:bg-bronze-dark focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
             >
-              <MessageCircle className="w-4.5 h-4.5" strokeWidth={1.5} aria-hidden="true" />
+              <MessageCircle className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
               {LANDING.hero.cta}
             </a>
             <a
               href={LANDING.header.phoneHref}
-              className="inline-flex items-center justify-center gap-2 font-body text-[15px] font-medium text-concrete/70 hover:text-bronze-light transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
+              className="inline-flex items-center justify-center gap-2 font-body text-[15px] font-medium text-marmorino hover:text-bronze transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
             >
               <Phone className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
               {LANDING.header.phone}
@@ -69,13 +68,13 @@ export default function ImplantesPage() {
       </section>
 
       {/* ── TRUST STRIP ────────────────────────────────────────── */}
-      <section className="bg-bronze">
+      <section className="bg-concrete-warm border-b border-marmorino-light/40">
         <div className="max-w-5xl mx-auto px-5 md:px-8 py-4">
           <ul className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-10">
             {LANDING.trust.map((item) => (
               <li key={item} className="flex items-center gap-2.5">
-                <Check className="w-3.5 h-3.5 text-concrete shrink-0" strokeWidth={2.5} aria-hidden="true" />
-                <span className="font-body text-[13px] md:text-[14px] text-concrete font-medium tracking-[0.02em]">
+                <Check className="w-3.5 h-3.5 text-bronze shrink-0" strokeWidth={2.5} aria-hidden="true" />
+                <span className="font-body text-[13px] md:text-[14px] text-charcoal font-medium tracking-[0.02em]">
                   {item}
                 </span>
               </li>
@@ -243,16 +242,16 @@ export default function ImplantesPage() {
       </section>
 
       {/* ── FINAL CTA ──────────────────────────────────────────── */}
-      <section className="bg-shadow py-20 md:py-28">
+      <section className="bg-concrete-warm py-20 md:py-28 border-t border-marmorino-light/40">
         <div className="max-w-5xl mx-auto px-5 md:px-8 text-center">
-          <p className="font-body uppercase text-[11px] md:text-[12px] tracking-[0.2em] text-bronze font-medium mb-6">
+          <p className="font-body uppercase text-[11px] md:text-[12px] tracking-[0.2em] text-bronze-dark font-medium mb-6">
             {LANDING.cta.eyebrow}
           </p>
-          <h2 className="font-display leading-[1.08] text-[clamp(32px,5vw,64px)] text-concrete max-w-2xl mx-auto mb-6">
-            <span className="text-bronze-light block">{LANDING.cta.bronze}</span>
-            <span className="text-bronze-light italic block">{LANDING.cta.bronzeItalic}</span>
+          <h2 className="font-display leading-[1.08] text-[clamp(32px,5vw,64px)] text-charcoal max-w-2xl mx-auto mb-6">
+            <span className="text-bronze block">{LANDING.cta.bronze}</span>
+            <span className="text-bronze italic block">{LANDING.cta.bronzeItalic}</span>
           </h2>
-          <p className="font-body text-[clamp(15px,1.5vw,18px)] text-concrete/70 leading-relaxed max-w-lg mx-auto mb-10">
+          <p className="font-body text-[clamp(15px,1.5vw,18px)] text-marmorino leading-relaxed max-w-lg mx-auto mb-10">
             {LANDING.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -267,7 +266,7 @@ export default function ImplantesPage() {
             </a>
             <a
               href={LANDING.header.phoneHref}
-              className="inline-flex items-center gap-2 font-body text-[15px] font-medium text-concrete/60 hover:text-bronze-light transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
+              className="inline-flex items-center gap-2 font-body text-[15px] font-medium text-marmorino hover:text-bronze transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
             >
               <Phone className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
               {LANDING.cta.secondary}
