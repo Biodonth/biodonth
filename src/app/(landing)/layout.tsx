@@ -1,25 +1,8 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Inter } from 'next/font/google';
 import Script from 'next/script';
+import { instrumentSerif, inter } from '@/lib/fonts';
 import { SITE_URL } from '@/lib/site';
 import '../globals.css';
-
-const instrumentSerif = Instrument_Serif({
-  variable: '--font-instrument',
-  weight: '400',
-  style: ['normal', 'italic'],
-  subsets: ['latin', 'latin-ext'],
-  display: 'swap',
-  preload: true,
-});
-
-const inter = Inter({
-  variable: '--font-inter',
-  weight: ['400', '500'],
-  subsets: ['latin', 'latin-ext'],
-  display: 'swap',
-  preload: true,
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
