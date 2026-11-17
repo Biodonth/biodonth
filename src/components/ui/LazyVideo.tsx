@@ -27,14 +27,14 @@ export function LazyVideo({ src, poster, alt, vtt, mounted = true }: LazyVideoPr
   if (!mounted) {
     return (
       <div
-        className="aspect-[9/16] max-w-[320px] rounded-xl bg-concrete-warm"
+        className="w-full max-w-[320px] aspect-[9/16] rounded-xl bg-concrete-warm"
         aria-hidden="true"
       />
     );
   }
 
   return (
-    <div className="relative aspect-[9/16] max-w-[320px] overflow-hidden rounded-xl bg-concrete-warm">
+    <div className="relative w-full max-w-[320px] aspect-[9/16] overflow-hidden rounded-xl bg-concrete-warm">
       {playing ? (
         <video
           ref={videoRef}
