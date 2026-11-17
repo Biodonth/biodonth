@@ -1,0 +1,26 @@
+{
+  "enabled": false,
+  "rating": 0,
+  "total": 0,
+  "googleUrl": "[REVISAR] URL do perfil Google da Biodonth",
+  "reviews": [
+    {
+      "name": "[REVISAR] Nome P.",
+      "stars": 5,
+      "text": "[REVISAR] Substituir por avaliação real copiada do Google. Nunca inventar.",
+      "date": "[REVISAR] Data"
+    },
+    {
+      "name": "[REVISAR] Nome S.",
+      "stars": 5,
+      "text": "[REVISAR] Substituir por avaliação real copiada do Google. Nunca inventar.",
+      "date": "[REVISAR] Data"
+    },
+    {
+      "name": "[REVISAR] Nome C.",
+      "stars": 5,
+      "text": "[REVISAR] Substituir por avaliação real copiada do Google. Nunca inventar.",
+      "date": "[REVISAR] Data"
+    }
+  ]
+}
