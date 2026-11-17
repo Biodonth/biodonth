@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab';
-import './globals.css';
+import '../globals.css';
 
 import { SITE_URL } from '@/lib/site';
 const SITE_NAME = 'Biodonth';
