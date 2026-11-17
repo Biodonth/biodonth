@@ -2,10 +2,22 @@
 
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { LazyVideo } from '@/components/ui/LazyVideo';
 
-type FaqItem = { question: string; answer: string };
+type VideoMeta = {
+  src: string;
+  poster: string;
+  alt: string;
+  vtt?: string;
+};
 
-export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
+export type FaqItemData = {
+  question: string;
+  answer: string;
+  video?: VideoMeta | null;
+};
+
+export function FaqAccordion({ items }: { items: readonly FaqItemData[] }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
@@ -32,9 +44,20 @@ export function FaqAccordion({ items }: { items: readonly FaqItem[] }) {
               </span>
             </button>
             {isOpen && (
-              <p className="pb-5 font-body text-[clamp(15px,1.4vw,17px)] text-marmorino leading-relaxed max-w-2xl">
-                {item.answer}
-              </p>
+              <div className="pb-6">
+                <p className="font-body text-[clamp(15px,1.4vw,17px)] text-marmorino leading-relaxed max-w-2xl mb-5">
+                  {item.answer}
+                </p>
+                {item.video && (
+                  <LazyVideo
+                    src={item.video.src}
+                    poster={item.video.poster}
+                    alt={item.video.alt}
+                    vtt={item.video.vtt}
+                    mounted={isOpen}
+                  />
+                )}
+              </div>
             )}
           </li>
         );

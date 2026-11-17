@@ -3,12 +3,8 @@
 
 import { CONTACT } from './contact';
 
-export const IMPLANTES_WA_MESSAGE = encodeURIComponent(
-  'Vi o anúncio e gostaria de agendar uma avaliação de implante na Biodonth.'
-);
-
-export const IMPLANTES_WA_URL =
-  `https://api.whatsapp.com/send?phone=${CONTACT.whatsapp.raw}&text=${IMPLANTES_WA_MESSAGE}`;
+// WhatsApp URLs are now built dynamically by WhatsAppCta / StickyBar
+// using buildWhatsAppUrl() from @/lib/whatsapp — no static URL exported here.
 
 export const LANDING = {
   meta: {
@@ -22,17 +18,21 @@ export const LANDING = {
   },
   hero: {
     eyebrow: 'Implante dentário · Artur Alvim, SP',
-    bronze: 'Perdeu um dente.',
-    bronzeItalic: 'Existe um caminho.',
+    line1: 'Perdeu dentes ou cansou da dentadura?',
+    line2: 'Existe um caminho.',
     description:
-      'Implante não é prótese — é raiz nova. Um dente que se comporta como sempre esteve ali: morde, fala, dura décadas.',
+      'Implante não é prótese solta, é uma raiz nova. Firme para morder, falar e sorrir, com manutenção feita aqui.',
     cta: 'Agendar avaliação gratuita',
+    disclaimer:
+      'Orçamento só depois da avaliação: cada caso é diferente. Por isso, não passamos valores pelo WhatsApp.',
   },
   trust: [
     'Avaliação gratuita na primeira consulta',
     'Especialista dedicado em implantes',
     'Plano escrito, sem pressão para decidir',
   ],
+  responseTime:
+    'Seg–Sex 08h–17h · Sáb 09h–14h. Fora do horário, respondemos na próxima abertura.',
   problem: {
     eyebrow: 'Você se reconhece aqui?',
     bronze: 'Sinais de que',
@@ -46,33 +46,6 @@ export const LANDING = {
     ],
     bridge:
       'Nenhum sinal decide o tratamento sozinho. O que decide é a avaliação, feita sem pressa na primeira consulta.',
-  },
-  process: {
-    eyebrow: 'Como funciona aqui',
-    bronze: 'Sem surpresas,',
-    bronzeItalic: 'sem pressa.',
-    steps: [
-      {
-        number: '01',
-        title: 'Avaliação completa.',
-        body: 'Exame clínico, histórico e indicação de exames de imagem. Você sai entendendo seu caso.',
-      },
-      {
-        number: '02',
-        title: 'Planejamento integrado.',
-        body: 'Implantodontista, periodontista e protesista discutem o caso juntos antes de qualquer proposta.',
-      },
-      {
-        number: '03',
-        title: 'Plano na sua mão.',
-        body: 'Etapas, prazos, valores e alternativas por escrito. Leva para casa, pensa com calma.',
-      },
-      {
-        number: '04',
-        title: 'Acompanhamento de longo prazo.',
-        body: 'Consultas semestrais de manutenção. Implantes bem cuidados duram décadas.',
-      },
-    ],
   },
   specialists: {
     eyebrow: 'Quem cuida do seu caso',
@@ -92,6 +65,45 @@ export const LANDING = {
         cro: 'CRO-SP 101519',
         image: '/images/especialistas/marcia-sousa.jpeg',
         alt: 'Retrato de Dra. Marcia Maria de Sousa, Diretora Clínica',
+      },
+    ],
+  },
+  process: {
+    eyebrow: 'Como funciona aqui',
+    bronze: 'Sem surpresas,',
+    bronzeItalic: 'sem pressa.',
+    steps: [
+      {
+        number: '01',
+        title: 'Avaliação completa.',
+        body: 'Exame clínico, histórico e indicação de exames de imagem. Você sai entendendo seu caso.',
+        video: null,
+      },
+      {
+        number: '02',
+        title: 'Planejamento integrado.',
+        body: 'Implantodontista, periodontista e protesista discutem o caso juntos antes de qualquer proposta.',
+        video: {
+          src: '/videos/v07-planejamento.mp4',
+          poster: '/videos/posters/v07-planejamento.jpg',
+          alt: 'Vídeo: como funciona o planejamento integrado na Biodonth',
+        },
+      },
+      {
+        number: '03',
+        title: 'Plano na sua mão.',
+        body: 'Etapas, prazos e alternativas por escrito. Leva para casa, pensa com calma.',
+        video: {
+          src: '/videos/v04-orcamento.mp4',
+          poster: '/videos/posters/v04-orcamento.jpg',
+          alt: 'Vídeo: como é o plano de tratamento na Biodonth',
+        },
+      },
+      {
+        number: '04',
+        title: 'Acompanhamento de longo prazo.',
+        body: 'Consultas semestrais de manutenção para acompanhar o seu implante de perto.',
+        video: null,
       },
     ],
   },
@@ -119,29 +131,52 @@ export const LANDING = {
     bronzeItalic: 'quer saber antes.',
     items: [
       {
+        question: 'Uso dentadura há anos. Posso fazer implante?',
+        answer:
+          'Dependendo do seu caso, dá para trocar a dentadura por uma prótese sobre implantes, mais firme no dia a dia. O que define é a avaliação: o osso, a saúde da boca e o tipo de prótese indicado para você.',
+        video: null,
+      },
+      {
         question: 'Implante dói?',
         answer:
           'A cirurgia é feita sob anestesia local. No pós, desconforto leve a moderado nas primeiras 48h, controlado com analgésicos comuns. A maioria dos pacientes volta às atividades no dia seguinte.',
+        video: {
+          src: '/videos/v01-implante-doi.mp4',
+          poster: '/videos/posters/v01-implante-doi.jpg',
+          alt: 'Vídeo: implante dói? Especialista da Biodonth responde',
+        },
       },
       {
         question: 'Quanto tempo do início ao fim?',
         answer:
           'Casos simples: 4 a 6 meses. Com necessidade de enxerto ósseo: 9 a 12 meses. A osseointegração — quando o implante se funde ao osso — é a etapa mais longa.',
+        video: {
+          src: '/videos/v05-etapas.mp4',
+          poster: '/videos/posters/v05-etapas.jpg',
+          alt: 'Vídeo: etapas e tempo do tratamento de implante',
+        },
       },
       {
         question: 'Implante dura para sempre?',
         answer:
-          'A literatura mostra taxa de sucesso superior a 95% em 10 anos. Muitos casos passam de 25–30 anos com manutenção adequada.',
+          'A literatura mostra taxa de sucesso superior a 95% em 10 anos. Muitos casos superam 25–30 anos com manutenção adequada.',
+        video: null,
       },
       {
         question: 'Posso fazer com pouco osso?',
         answer:
           'Em muitos casos, sim — com enxerto ósseo prévio. A tomografia feita na avaliação mostra exatamente o cenário do seu caso.',
+        video: {
+          src: '/videos/v06-pouco-osso.mp4',
+          poster: '/videos/posters/v06-pouco-osso.jpg',
+          alt: 'Vídeo: é possível fazer implante com pouco osso?',
+        },
       },
       {
         question: 'Vou ficar sem dente durante o tratamento?',
         answer:
           'Em geral, não. Usamos prótese provisória estética durante o período de osseointegração para que você não fique com espaço vazio.',
+        video: null,
       },
     ],
   },
@@ -153,6 +188,8 @@ export const LANDING = {
       'Na primeira consulta, você sai entendendo o seu caso, com um plano escrito na mão e sem nenhuma pressão para decidir.',
     primary: 'Agendar avaliação gratuita',
     secondary: `Ligar: ${CONTACT.phone.display}`,
+    address: 'Rua Desembargador Rocha Portela, 1012 — Artur Alvim, São Paulo — SP',
+    hours: 'Seg–Sex 08h–17h · Sáb 09h–14h',
   },
   footer: {
     address: 'Rua Desembargador Rocha Portela, 1012 — Artur Alvim, São Paulo — SP',

@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Phone, MessageCircle, Check } from 'lucide-react';
+import { Phone, Check } from 'lucide-react';
 import { LogoFull } from '@/components/ui/Logo';
 import { BeforeAfter } from '@/components/ui/BeforeAfter';
-import { LANDING, IMPLANTES_WA_URL } from '@/content/landing-implantes';
+import { LazyVideo } from '@/components/ui/LazyVideo';
+import { LANDING } from '@/content/landing-implantes';
+import { WhatsAppCta } from './WhatsAppCta';
+import { StickyBar } from './StickyBar';
 import { FaqAccordion } from './FaqAccordion';
+import { ReviewsBlock } from './ReviewsBlock';
 
 export const metadata: Metadata = {
   title: LANDING.meta.title,
@@ -13,49 +17,43 @@ export const metadata: Metadata = {
   alternates: { canonical: '/implantes' },
 };
 
+const FINAL_CTA_ID = 'implantes-final-cta';
+
 export default function ImplantesPage() {
   return (
-    <div className="bg-concrete text-charcoal min-h-screen">
+    <div className="bg-concrete text-charcoal min-h-screen pb-20 md:pb-0">
 
       {/* ── HEADER ─────────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 bg-concrete/95 backdrop-blur-sm border-b border-marmorino-light/40">
         <div className="max-w-5xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
           <LogoFull className="h-7 w-auto text-bronze" aria-label="Biodonth Odontologia Integrada" />
-          <a
-            href={IMPLANTES_WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppCta
             className="inline-flex items-center gap-2 bg-bronze text-concrete font-body font-medium text-[13px] md:text-[14px] tracking-[0.04em] px-4 py-2.5 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4 transition-colors duration-300 hover:bg-bronze-dark"
           >
-            <MessageCircle className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
             <span>Agendar avaliação</span>
-          </a>
+          </WhatsAppCta>
         </div>
       </header>
 
-      {/* ── HERO ───────────────────────────────────────────────── */}
+      {/* ── 1. HERO ────────────────────────────────────────────── */}
       <section className="bg-concrete pt-16 pb-14 md:pt-20 md:pb-18 border-b border-marmorino-light/40">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <p className="font-body uppercase text-[11px] md:text-[12px] tracking-[0.2em] text-bronze-dark font-medium mb-6">
             {LANDING.hero.eyebrow}
           </p>
-          <h1 className="font-display leading-[1.08] text-[clamp(38px,6vw,76px)] max-w-3xl mb-6">
-            <span className="text-bronze block">{LANDING.hero.bronze}</span>
-            <span className="text-bronze italic block">{LANDING.hero.bronzeItalic}</span>
+          <h1 className="font-display leading-[1.08] text-[clamp(36px,5.5vw,70px)] max-w-3xl mb-6">
+            <span className="text-charcoal block">{LANDING.hero.line1}</span>
+            <span className="text-bronze italic block">{LANDING.hero.line2}</span>
           </h1>
-          <p className="font-body text-[clamp(16px,1.6vw,20px)] text-marmorino leading-relaxed max-w-xl mb-10">
+          <p className="font-body text-[clamp(16px,1.6vw,20px)] text-marmorino leading-relaxed max-w-xl mb-8">
             {LANDING.hero.description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href={IMPLANTES_WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="flex flex-col sm:flex-row gap-4 mb-4">
+            <WhatsAppCta
               className="inline-flex items-center justify-center gap-2.5 bg-bronze text-concrete font-body font-medium text-[15px] tracking-[0.03em] px-7 py-4 transition-colors duration-300 hover:bg-bronze-dark focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
             >
-              <MessageCircle className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
               {LANDING.hero.cta}
-            </a>
+            </WhatsAppCta>
             <a
               href={LANDING.header.phoneHref}
               className="inline-flex items-center justify-center gap-2 font-body text-[15px] font-medium text-marmorino hover:text-bronze transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
@@ -64,10 +62,13 @@ export default function ImplantesPage() {
               {LANDING.header.phone}
             </a>
           </div>
+          <p className="font-body text-[13px] text-marmorino/70 leading-relaxed max-w-lg">
+            {LANDING.hero.disclaimer}
+          </p>
         </div>
       </section>
 
-      {/* ── TRUST STRIP ────────────────────────────────────────── */}
+      {/* Trust strip */}
       <section className="bg-concrete-warm border-b border-marmorino-light/40">
         <div className="max-w-5xl mx-auto px-5 md:px-8 py-4">
           <ul className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-10">
@@ -83,7 +84,7 @@ export default function ImplantesPage() {
         </div>
       </section>
 
-      {/* ── PROBLEM ────────────────────────────────────────────── */}
+      {/* ── 2. VOCÊ SE RECONHECE AQUI? ─────────────────────────── */}
       <section className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -118,49 +119,8 @@ export default function ImplantesPage() {
         </div>
       </section>
 
-      {/* ── PROCESS ────────────────────────────────────────────── */}
+      {/* ── 3. QUEM CUIDA DO SEU CASO ──────────────────────────── */}
       <section className="bg-concrete-warm py-20 md:py-28">
-        <div className="max-w-5xl mx-auto px-5 md:px-8">
-          <p className="font-body uppercase text-[12px] tracking-[0.18em] text-bronze-dark font-medium mb-6">
-            {LANDING.process.eyebrow}
-          </p>
-          <h2 className="font-display leading-[1.1] text-[clamp(28px,3.5vw,44px)] text-charcoal mb-14">
-            {LANDING.process.bronze}{' '}
-            <span className="italic text-bronze">{LANDING.process.bronzeItalic}</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-0">
-            {LANDING.process.steps.map((step, i) => (
-              <div key={i} className="flex gap-5 py-7 border-t border-marmorino-light/50">
-                <span className="font-body text-[11px] tracking-[0.14em] text-bronze-dark font-medium shrink-0 w-7 pt-1">
-                  {step.number}
-                </span>
-                <div>
-                  <h3 className="font-display text-[clamp(17px,1.7vw,21px)] text-charcoal leading-[1.2] mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="font-body text-[14px] md:text-[15px] text-marmorino leading-relaxed">
-                    {step.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 pt-10 border-t border-marmorino-light/50">
-            <a
-              href={IMPLANTES_WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-bronze text-concrete font-body font-medium text-[15px] tracking-[0.03em] px-7 py-4 transition-colors duration-300 hover:bg-bronze-dark focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
-            >
-              <MessageCircle className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
-              {LANDING.hero.cta}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SPECIALISTS ────────────────────────────────────────── */}
-      <section className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <p className="font-body uppercase text-[12px] tracking-[0.18em] text-bronze-dark font-medium mb-6">
             {LANDING.specialists.eyebrow}
@@ -198,7 +158,62 @@ export default function ImplantesPage() {
         </div>
       </section>
 
-      {/* ── BEFORE / AFTER ─────────────────────────────────────── */}
+      {/* ── 4. GOOGLE REVIEWS (hidden until enabled) ───────────── */}
+      <ReviewsBlock />
+
+      {/* ── 5. COMO FUNCIONA ───────────────────────────────────── */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-5xl mx-auto px-5 md:px-8">
+          <p className="font-body uppercase text-[12px] tracking-[0.18em] text-bronze-dark font-medium mb-6">
+            {LANDING.process.eyebrow}
+          </p>
+          <h2 className="font-display leading-[1.1] text-[clamp(28px,3.5vw,44px)] text-charcoal mb-14">
+            {LANDING.process.bronze}{' '}
+            <span className="italic text-bronze">{LANDING.process.bronzeItalic}</span>
+          </h2>
+          <div className="space-y-0">
+            {LANDING.process.steps.map((step, i) => (
+              <div key={i} className="grid md:grid-cols-12 gap-6 md:gap-10 py-8 border-t border-marmorino-light/50 items-start">
+                <div className="md:col-span-7 flex gap-5">
+                  <span className="font-body text-[11px] tracking-[0.14em] text-bronze-dark font-medium shrink-0 w-7 pt-1">
+                    {step.number}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-[clamp(17px,1.7vw,21px)] text-charcoal leading-[1.2] mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="font-body text-[14px] md:text-[15px] text-marmorino leading-relaxed">
+                      {step.body}
+                    </p>
+                  </div>
+                </div>
+                {step.video && (
+                  <div className="md:col-span-5 flex justify-start md:justify-end">
+                    <LazyVideo
+                      src={step.video.src}
+                      poster={step.video.poster}
+                      alt={step.video.alt}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+            <div aria-hidden="true" className="border-t border-marmorino-light/50" />
+          </div>
+          <div className="mt-10">
+            <WhatsAppCta
+              className="inline-flex items-center gap-2 bg-bronze text-concrete font-body font-medium text-[15px] tracking-[0.03em] px-7 py-4 transition-colors duration-300 hover:bg-bronze-dark focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
+            >
+              {LANDING.hero.cta}
+            </WhatsAppCta>
+            <p className="mt-3 font-body text-[12px] text-marmorino/70">
+              {LANDING.responseTime}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. RESULTADO REAL ──────────────────────────────────── */}
       <section className="bg-concrete-warm py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <p className="font-body uppercase text-[12px] tracking-[0.18em] text-bronze-dark font-medium mb-6">
@@ -221,7 +236,7 @@ export default function ImplantesPage() {
         </div>
       </section>
 
-      {/* ── FAQ ────────────────────────────────────────────────── */}
+      {/* ── 7. FAQ ─────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -241,8 +256,11 @@ export default function ImplantesPage() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ──────────────────────────────────────────── */}
-      <section className="bg-concrete-warm py-20 md:py-28 border-t border-marmorino-light/40">
+      {/* ── 8. PRÓXIMO PASSO (FINAL CTA) ───────────────────────── */}
+      <section
+        id={FINAL_CTA_ID}
+        className="bg-concrete-warm py-20 md:py-28 border-t border-marmorino-light/40"
+      >
         <div className="max-w-5xl mx-auto px-5 md:px-8 text-center">
           <p className="font-body uppercase text-[11px] md:text-[12px] tracking-[0.2em] text-bronze-dark font-medium mb-6">
             {LANDING.cta.eyebrow}
@@ -254,16 +272,12 @@ export default function ImplantesPage() {
           <p className="font-body text-[clamp(15px,1.5vw,18px)] text-marmorino leading-relaxed max-w-lg mx-auto mb-10">
             {LANDING.cta.description}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={IMPLANTES_WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+            <WhatsAppCta
               className="inline-flex items-center gap-2.5 bg-bronze text-concrete font-body font-medium text-[15px] tracking-[0.03em] px-8 py-4 transition-colors duration-300 hover:bg-bronze-dark focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
             >
-              <MessageCircle className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
               {LANDING.cta.primary}
-            </a>
+            </WhatsAppCta>
             <a
               href={LANDING.header.phoneHref}
               className="inline-flex items-center gap-2 font-body text-[15px] font-medium text-marmorino hover:text-bronze transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-bronze focus-visible:outline-offset-4"
@@ -272,10 +286,17 @@ export default function ImplantesPage() {
               {LANDING.cta.secondary}
             </a>
           </div>
+          <p className="font-body text-[13px] text-marmorino/70 mb-8">
+            {LANDING.responseTime}
+          </p>
+          <div className="font-body text-[13px] text-marmorino/60 space-y-1">
+            <p>{LANDING.cta.address}</p>
+            <p>{LANDING.cta.hours}</p>
+          </div>
         </div>
       </section>
 
-      {/* ── LEGAL FOOTER ───────────────────────────────────────── */}
+      {/* ── 9. LEGAL FOOTER ────────────────────────────────────── */}
       <footer className="bg-shadow border-t border-concrete/10 py-8">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -293,6 +314,9 @@ export default function ImplantesPage() {
           </p>
         </div>
       </footer>
+
+      {/* ── STICKY MOBILE BAR ──────────────────────────────────── */}
+      <StickyBar finalCtaId={FINAL_CTA_ID} />
 
     </div>
   );
