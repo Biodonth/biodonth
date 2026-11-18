@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { LogoFull } from '@/components/ui/Logo';
+import { FaqAccordion } from '@/components/ui/FaqAccordion';
+import { LANDING } from '@/content/landing-implantes';
 import { LeadForm } from './LeadForm';
 
 export const metadata: Metadata = {
@@ -37,10 +39,22 @@ export default function CaptacaoPage() {
           <LeadForm />
         </div>
 
+        {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+        <section className="mt-16 md:mt-20" aria-labelledby="faq-heading">
+          <p className="font-body uppercase text-[11px] tracking-[0.2em] text-bronze-dark font-medium mb-4">
+            {LANDING.faq.eyebrow}
+          </p>
+          <h2 id="faq-heading" className="font-display text-[clamp(24px,3.5vw,36px)] leading-[1.1] text-charcoal mb-8">
+            {LANDING.faq.bronze}{' '}
+            <span className="italic text-bronze">{LANDING.faq.bronzeItalic}</span>
+          </h2>
+          <FaqAccordion items={LANDING.faq.items} />
+        </section>
+
       </main>
 
       {/* ── Footer ─────────────────────────────────────────────────────────── */}
-      <footer className="bg-shadow border-t border-concrete/10 px-5 py-6 text-center">
+      <footer className="bg-shadow border-t border-concrete/10 px-5 py-6 text-center mt-16">
         <p className="font-body text-[11px] text-marmorino/50 leading-relaxed">
           {/* [REVISAR] Responsável Técnico: Dr(a). Nome Sobrenome — CRO-SP 00000 */}
           Responsável Técnico: <span className="text-marmorino/70">[REVISAR — inserir nome e CRO do RT]</span>
