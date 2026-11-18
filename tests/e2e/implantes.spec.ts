@@ -78,11 +78,13 @@ test.describe('WhatsApp link text', () => {
 });
 
 test.describe('Banned words', () => {
-  test.each(BANNED)('page does not contain "%s"', async (word, { page }) => {
-    await page.goto(PATH);
-    const body = await page.locator('body').innerText();
-    expect(body.toLowerCase()).not.toContain(word.toLowerCase());
-  });
+  for (const word of BANNED) {
+    test(`page does not contain "${word}"`, async ({ page }) => {
+      await page.goto(PATH);
+      const body = await page.locator('body').innerText();
+      expect(body.toLowerCase()).not.toContain(word.toLowerCase());
+    });
+  }
 });
 
 test.describe('Video lazy loading', () => {
