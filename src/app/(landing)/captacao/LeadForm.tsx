@@ -164,6 +164,39 @@ export function LeadForm() {
     }
   }, []);
 
+  // ── Meta Pixel queue ─────────────────────────────────────────────────────────
+  // GTM loads asynchronously. If the user submits before fbq initialises we poll
+  // for up to 2.5 s, fire the events as soon as it's ready, then redirect.
+  // eventId is fixed at submit time so there is no risk of double-counting.
+  function waitForFbq(
+    eventId: string,
+    qualified: boolean,
+    caso: string,
+    prazo: string,
+  ): Promise<void> {
+    return new Promise((resolve) => {
+      function tryFire(): boolean {
+        const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq;
+        if (typeof fbq !== 'function') return false;
+        fbq('track', 'Lead', { content_name: 'implante' }, { eventID: eventId });
+        if (qualified) {
+          fbq('trackCustom', 'QualifiedLead', { caso, prazo }, { eventID: eventId + '-q' });
+        }
+        return true;
+      }
+
+      if (tryFire()) { resolve(); return; }
+
+      const start = Date.now();
+      const timer = setInterval(() => {
+        if (tryFire() || Date.now() - start >= 2500) {
+          clearInterval(timer);
+          resolve();
+        }
+      }, 100);
+    });
+  }
+
   function handlePhone(raw: string) {
     setForm((f) => ({ ...f, whatsapp: maskPhone(raw) }));
   }
@@ -206,26 +239,17 @@ export function LeadForm() {
       fetch('/api/lead', { method: 'POST', body, keepalive: true }).catch(() => {});
     }
 
-    // 3. Fire Meta Pixel events
-    const winFbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq;
-    if (typeof winFbq === 'function') {
-      const fbq = winFbq;
-      fbq('track', 'Lead', { content_name: 'implante' }, { eventID: eventId });
-      if (qualified) {
-        fbq('trackCustom', 'QualifiedLead', { caso: form.caso, prazo: form.prazo }, { eventID: eventId + '-q' });
-      }
-    }
-
-    // 4. Build WA URL and show thank-you state
+    // 3. Build WA URL and show thank-you state immediately
     const url = buildLeadWaUrl(CLINIC_WHATSAPP, payload.nome, form.caso, form.prazo);
     setWaUrl(url);
     setSubmitted(true);
     setSubmitting(false);
 
-    // 5. Fallback auto-redirect after 600 ms (button remains functional if blocked)
-    setTimeout(() => {
+    // 4. Fire Meta Pixel events — waits up to 2.5 s for GTM to initialise fbq,
+    //    then redirects. Button in thank-you state remains functional throughout.
+    waitForFbq(eventId, qualified, form.caso, form.prazo).then(() => {
       window.location.href = url;
-    }, 600);
+    });
   }
 
   // ── Thank-you state ──────────────────────────────────────────────────────────

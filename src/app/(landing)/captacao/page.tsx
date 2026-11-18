@@ -56,11 +56,10 @@ export default function CaptacaoPage() {
       {/* ── Footer ─────────────────────────────────────────────────────────── */}
       <footer className="bg-shadow border-t border-concrete/10 px-5 py-6 text-center mt-16">
         <p className="font-body text-[11px] text-marmorino/50 leading-relaxed">
-          {/* [REVISAR] Responsável Técnico: Dr(a). Nome Sobrenome — CRO-SP 00000 */}
-          Responsável Técnico: <span className="text-marmorino/70">[REVISAR — inserir nome e CRO do RT]</span>
+          {LANDING.footer.cro}
         </p>
         <p className="font-body text-[11px] text-marmorino/40 mt-1">
-          Rua Arquiteto Olavo Redig de Campos, 105 — Artur Alvim, São Paulo
+          {LANDING.footer.address}
         </p>
       </footer>
 

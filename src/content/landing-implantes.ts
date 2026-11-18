@@ -188,11 +188,11 @@ export const LANDING = {
       'Na primeira consulta, você sai entendendo o seu caso, com um plano escrito na mão e sem nenhuma pressão para decidir.',
     primary: 'Agendar avaliação gratuita',
     secondary: `Ligar: ${CONTACT.phone.display}`,
-    address: 'Rua Desembargador Rocha Portela, 1012 — Artur Alvim, São Paulo — SP',
+    address: 'Rua Desembargador Rocha Portela, 1012 — Artur Alvim, São Paulo — SP, CEP 03567-000',
     hours: 'Seg–Sex 08h–17h · Sáb 09h–14h',
   },
   footer: {
-    address: 'Rua Desembargador Rocha Portela, 1012 — Artur Alvim, São Paulo — SP',
+    address: 'Rua Desembargador Rocha Portela, 1012 — Artur Alvim, São Paulo — SP, CEP 03567-000',
     hours: 'Seg–Sex 08h–17h · Sáb 09h–14h',
     legal:
       'Publicidade sujeita às normas do Conselho Federal de Odontologia (CFO). Resultados individuais. Nenhuma imagem nesta página representa promessa ou garantia de resultado.',
