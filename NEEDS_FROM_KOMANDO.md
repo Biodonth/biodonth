@@ -80,3 +80,59 @@ If a file is > 4 MB, re-run with a higher CRF:
   (once real reviews are provided).
 - [ ] Confirm that all specialist photos on the landing page show the right people
   (`/images/especialistas/nilson-oliveira.png` and `marcia-sousa.jpeg`).
+
+---
+
+## Lead Funnel (/captacao) — env vars to set on Vercel
+
+Set these on Vercel → Project → Settings → Environment Variables → **Preview** (and Production when ready).
+See `.env.example` for the full list with descriptions.
+
+- [ ] `META_PIXEL_ID` — your Meta Pixel ID (numbers only)
+- [ ] `META_CAPI_TOKEN` — Conversions API access token (keep secret — server only)
+- [ ] `META_TEST_EVENT_CODE` — from Meta Events Manager → Test Events (remove after testing)
+- [ ] `GRAPH_API_VERSION` — default `v21.0`; check https://developers.facebook.com/docs/graph-api/changelog
+- [ ] `SHEETS_WEBHOOK_URL` — Apps Script web app URL (see Apps Script deploy steps below)
+- [ ] `SHEETS_WEBHOOK_SECRET` — a strong random string; set the same value as Script Property `SECRET`
+- [ ] `CLINIC_WHATSAPP` — `5511950031000` (already the default; update if number changes)
+- [ ] `TELEGRAM_BOT_TOKEN` — optional; leave blank to disable Telegram alerts
+- [ ] `TELEGRAM_CHAT_ID` — optional; leave blank to disable Telegram alerts
+
+---
+
+## Lead Funnel — Apps Script deploy (≈5 min, phone or desktop)
+
+1. Create a new Google Sheet (or open the existing leads sheet).
+2. In the Sheet: **Extensions → Apps Script**.
+3. Delete the default `Code.gs` content and paste the contents of `apps-script/Code.gs` from this repo.
+4. **Project Settings (gear icon) → Script Properties → Add property**:
+   - `SECRET` = the same random string you will set as `SHEETS_WEBHOOK_SECRET` on Vercel
+   - `SPREADSHEET_ID` = the ID from the Sheet URL (the long string between `/d/` and `/edit`)
+5. **Deploy → New deployment**:
+   - Type: **Web app**
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+   - Click **Deploy** → copy the web app URL
+6. Set `SHEETS_WEBHOOK_URL` on Vercel to that URL.
+
+---
+
+## Lead Funnel — Responsável Técnico in footer
+
+- [ ] Update `src/app/(landing)/captacao/page.tsx` footer with the real RT name and CRO number.
+  Current placeholder: `[REVISAR — inserir nome e CRO do RT]`
+
+---
+
+## Lead Funnel — Privacy Policy link
+
+- [ ] The LGPD consent text in the form links to `/politica-de-privacidade`.
+  Confirm that page exists and is up to date.
+
+---
+
+## Lead Funnel — Promote to production
+
+- [ ] After all env vars are set and the test lead verified (see `TESTING.md`):
+  go to Vercel → Deployments → find the Preview deployment for this branch → **Promote to Production**.
+- [ ] Remove `META_TEST_EVENT_CODE` from Vercel env vars after testing is complete.
